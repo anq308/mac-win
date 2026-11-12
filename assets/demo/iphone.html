@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Файлы · Мой компьютер</title>
+<style>
+  :root {
+    --bg: #f2f2f7; --card: #ffffff; --ink: #000000; --dim: #6e6e73; --line: rgba(60,60,67,.18);
+    --blue: #007aff; --green: #34c759; --red: #ff3b30; --track: rgba(120,120,128,.2);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #000000; --card: #1c1c1e; --ink: #ffffff; --dim: #8e8e93; --line: rgba(84,84,88,.6);
+            --blue: #0a84ff; --green: #30d158; --red: #ff453a; --track: rgba(120,120,128,.32); }
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 17px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         padding: max(16px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom)); }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  header { display: flex; align-items: center; gap: 12px; margin: 8px 4px 20px; }
+  .pc { width: 44px; height: 44px; border-radius: 12px; background: var(--blue); display: grid; place-items: center; flex: none; }
+  .pc svg { width: 26px; height: 26px; }
+  h1 { font-size: 22px; font-weight: 700; margin: 0; }
+  .sub { color: var(--dim); font-size: 15px; margin: 0; }
+  .send { display: block; width: 100%; border: 0; border-radius: 14px; padding: 16px; font-family: inherit; font-size: 17px; font-weight: 600; line-height: 1.2; color: #fff; background: var(--blue); cursor: pointer; }
+  .send:active { opacity: .7; }
+  input[type=file] { display: none; }
+  h2 { font-size: 13px; font-weight: 400; text-transform: uppercase; color: var(--dim); margin: 28px 16px 8px; letter-spacing: .02em; }
+  .list { background: var(--card); border-radius: 12px; overflow: hidden; }
+  .row { display: flex; align-items: center; gap: 12px; padding: 11px 16px; min-height: 56px; position: relative; }
+  .row + .row::before { content: ""; position: absolute; top: 0; left: 60px; right: 0; border-top: .5px solid var(--line); }
+  .ico { width: 32px; height: 32px; border-radius: 8px; background: var(--track); flex: none; display: grid; place-items: center;
+         font-size: 15px; color: var(--dim); overflow: hidden; }
+  .ico img { width: 100%; height: 100%; object-fit: cover; }
+  .main { flex: 1; min-width: 0; }
+  .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .meta { color: var(--dim); font-size: 13px; margin-top: 2px; }
+  .bar { height: 4px; border-radius: 2px; background: var(--track); margin-top: 6px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--blue); transition: width .15s; }
+  .ok { color: var(--green); } .err { color: var(--red); }
+  a.get { color: var(--blue); text-decoration: none; font-size: 15px; padding: 6px 0 6px 12px; flex: none; }
+  .empty { color: var(--dim); font-size: 15px; padding: 16px; text-align: center; }
+  .hint { color: var(--dim); font-size: 13px; margin: 8px 16px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="pc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></div>
+    <div><h1>Мой компьютер</h1><p class="sub">Отправка файлов на компьютер</p></div>
+  </header>
+
+  <button class="send" id="pick">Выбрать фото, видео или файлы</button>
+  <input type="file" id="files" multiple>
+  <p class="hint">Фото и видео попадут в «Изображения\iPhone», остальное — в «Загрузки».</p>
+
+  <h2 id="sentTitle" hidden>Отправлено</h2>
+  <div class="list" id="sent" hidden></div>
+
+  <h2>С компьютера</h2>
+  <div class="list" id="offered"><div class="empty">Перетащите файлы в окно «Файлы с iPhone» на компьютере — они появятся здесь.</div></div>
+</div>
+<script>
+const base = location.pathname.replace(/\/+$/, "");
+const $ = id => document.getElementById(id);
+const queue = [];
+let busy = false;
+
+function size(n) {
+  if (n < 1024) return n + " Б";
+  const u = ["КБ", "МБ", "ГБ"]; let i = -1;
+  do { n /= 1024; i++; } while (n >= 1024 && i < 2);
+  return n.toFixed(n < 10 ? 1 : 0).replace(".", ",") + " " + u[i];
+}
+function esc(s) { return s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c])); }
+function icon(name) {
+  const e = (name.split(".").pop() || "").toLowerCase();
+  if (/^(jpe?g|png|heic|heif|gif|webp)$/.test(e)) return "🖼";
+  if (/^(mov|mp4|m4v|avi|mkv)$/.test(e)) return "🎬";
+  if (/^(mp3|m4a|wav|aac|flac)$/.test(e)) return "🎵";
+  if (e === "pdf") return "📄";
+  return "📎";
+}
+
+$("pick").onclick = () => $("files").click();
+$("files").onchange = e => {
+  for (const f of e.target.files) add(f);
+  e.target.value = "";
+  next();
+};
+
+function add(f) {
+  $("sent").hidden = $("sentTitle").hidden = false;
+  const row = document.createElement("div");
+  row.className = "row";
+  const thumb = f.type.startsWith("image/") ? `<img src="${URL.createObjectURL(f)}">` : icon(f.name);
+  row.innerHTML = `<div class="ico">${thumb}</div><div class="main"><div class="name">${esc(f.name)}</div>
+    <div class="meta">${size(f.size)} · ждёт</div><div class="bar"><i></i></div></div>`;
+  $("sent").prepend(row);
+  queue.push({ f, row });
+}
+
+function next() {
+  if (busy || !queue.length) return;
+  busy = true;
+  const { f, row } = queue.shift();
+  const meta = row.querySelector(".meta"), bar = row.querySelector(".bar i");
+  const x = new XMLHttpRequest();
+  const q = "?name=" + encodeURIComponent(f.name) + "&size=" + f.size + "&t=" + (f.lastModified || 0);
+  x.open("POST", base + "/up" + q);
+  x.upload.onprogress = ev => {
+    if (!ev.lengthComputable) return;
+    const p = ev.loaded / ev.total;
+    bar.style.width = (p * 100).toFixed(1) + "%";
+    meta.textContent = size(ev.loaded) + " из " + size(ev.total);
+  };
+  const done = ok => {
+    row.querySelector(".bar").remove();
+    meta.innerHTML = size(f.size) + " · " + (ok ? '<span class="ok">на компьютере</span>' : '<span class="err">не отправлено</span>');
+    busy = false;
+    next();
+  };
+  x.onload = () => done(x.status === 200);
+  x.onerror = x.onabort = () => done(false);
+  x.send(f);
+}
+
+let last = "";
+async function offered() {
+  try {
+    const r = await fetch(base + "/list", { cache: "no-store" });
+    const list = await r.json();
+    const key = JSON.stringify(list);
+    if (key !== last) {
+      last = key;
+      $("offered").innerHTML = list.length
+        ? list.map(i => `<div class="row"><div class="ico">${icon(i.name)}</div><div class="main"><div class="name">${esc(i.name)}</div>
+            <div class="meta">${size(i.size)}</div></div><a class="get" href="${base}/get/${i.id}">Загрузить</a></div>`).join("")
+        : '<div class="empty">Перетащите файлы в окно «Файлы с iPhone» на компьютере — они появятся здесь.</div>';
+    }
+  } catch (e) {}
+  setTimeout(offered, 2500);
+}
+offered();
+</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Центр Mac — удобство Mac для Windows 10 и 11</title>
+<meta name="description" content="Один файл — пять программ: поиск по Win+Пробел, панель музыки с текстом песен, снимки экрана, Finder и экран iPhone на компьютере. Сам подстраивается под Windows 10 и Windows 11.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Центр Mac — удобство Mac для Windows">
+<meta property="og:description" content="Поиск, музыка, снимки экрана, Finder и экран iPhone — в одном файле. Бесплатно.">
+<meta property="og:image" content="assets/img/center-home-11.png">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/version.js" defer></script>
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="assets/img/icon.png" alt="" width="28" height="28">Центр Mac</a>
+    <nav class="links" aria-label="Разделы">
+      <a href="#apps">Программы</a>
+      <a href="#center">Центр</a>
+      <a href="#scenery">Обои</a>
+      <a href="#keys">Клавиши</a>
+      <a href="#install">Установка</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Светлая или тёмная тема">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+    </button>
+    <a class="btn small primary" href="#download">Скачать</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= первый экран ======================= -->
+<section class="hero">
+  <!-- живой фон: «Пейзаж дня» сменяет утро, день, вечер и ночь -->
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/img/scene-morning.jpg" alt="" class="b0">
+    <img src="assets/img/scene-day.jpg" alt="" class="b1">
+    <img src="assets/img/scene-evening.jpg" alt="" class="b2">
+    <img src="assets/img/scene-night.jpg" alt="" class="b3">
+  </div>
+  <div class="wrap hero-in">
+    <img class="hero-logo" src="assets/img/icon.png" alt="" width="96" height="96">
+    <p class="eyebrow">Бесплатно · Windows 10 и Windows 11</p>
+    <h1><span class="line">Удобство Mac</span><span class="line">в вашей Windows</span></h1>
+    <p class="lead">Поиск, музыка с текстом песен, снимки экрана, Finder и экран iPhone. Один файл ставит всё и сам подстраивается под систему.</p>
+    <div class="cta" id="download">
+      <a class="btn primary big" href="downloads/mac-center.exe" download="Центр Mac.exe">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+        Скачать Центр Mac
+      </a>
+      <a class="btn glass big" href="#apps">Что внутри</a>
+    </div>
+    <p class="meta" id="version">Один файл · около 10 МБ · без установки чего-либо ещё</p>
+  </div>
+  <div class="stage wrap" id="stage">
+    <figure class="window stage-shot">
+      <img src="assets/img/center-home-11.png" alt="Главная страница Центра Mac: приветствие, версия Windows и пять программ с переключателями" width="1100" height="740">
+    </figure>
+    <img class="card c1" src="assets/img/island-download.png" alt="" width="496" height="122">
+    <img class="card c2" src="assets/img/island-msg.png" alt="" width="496" height="122">
+    <img class="card c3" src="assets/img/music.png" alt="" width="576" height="184">
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap strip-in">
+    <div><b>1 файл</b><span>внутри все пять программ</span></div>
+    <div><b>Win 10 и 11</b><span>оформление выбирается само</span></div>
+    <div><b>Без интернета</b><span>всё работает на компьютере</span></div>
+    <div><b>Обратимо</b><span>любую настройку можно вернуть</span></div>
+  </div>
+</section>
+
+<!-- ======================= программы ======================= -->
+<section id="apps" class="section">
+  <div class="wrap">
+    <h2>Пять программ — одна установка</h2>
+    <p class="sub">Каждая делает одно дело и не мешает остальным. Включайте только нужные.</p>
+
+    <article class="app">
+      <div class="app-text">
+        <div class="app-head"><span class="tile"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg></span><div><h3>Поиск</h3><p>MacSpotlight</p></div></div>
+        <ul class="ticks">
+          <li><kbd>Win</kbd>+<kbd>Пробел</kbd> — приложения, файлы, действия и параметры Windows</li>
+          <li>Калькулятор прямо в строке: <code>2^10</code>, <code>15%</code></li>
+          <li>История буфера обмена — только в памяти, пароли не запоминаются</li>
+          <li><kbd>Pause</kbd> или Shift дважды — «ghbdtn» превращается в «привет»</li>
+          <li><kbd>Пробел</kbd> в Проводнике — быстрый просмотр фото, PDF, видео и документов</li>
+        </ul>
+      </div>
+      <div class="app-shots stack">
+        <img src="assets/img/spotlight-actions.png" alt="Окно поиска в режиме действий" width="740" height="515" loading="lazy">
+        <img class="over" src="assets/img/quicklook.png" alt="Быстрый просмотр картинки по пробелу" width="1404" height="876" loading="lazy">
+      </div>
+    </article>
+
+    <article class="app flip">
+      <div class="app-text">
+        <div class="app-head"><span class="tile"><svg viewBox="0 0 24 24"><path d="M4 9h3l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg></span><div><h3>Звук и музыка</h3><p>MacMixer</p></div></div>
+        <ul class="ticks">
+          <li>Громкость каждой программы — щелчком по динамику в трее</li>
+          <li>Панель «Сейчас играет» сверху по центру вместо стандартной плашки Windows</li>
+          <li>Текст песни, как в Apple Music: строки подсвечиваются, щелчок — перемотка</li>
+          <li>«Островок»: уведомления, загрузки, смена трека, заряд наушников</li>
+        </ul>
+      </div>
+      <div class="app-shots column">
+        <img src="assets/img/music-lyrics.png" alt="Панель музыки с текстом песни" width="576" height="356" loading="lazy">
+        <img src="assets/img/island-msg.png" alt="Карточка уведомления сверху по центру" width="496" height="122" loading="lazy">
+      </div>
+    </article>
+
+    <article class="app">
+      <div class="app-text">
+        <div class="app-head"><span class="tile"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><div><h3>Снимки экрана</h3><p>MacShot</p></div></div>
+        <ul class="ticks">
+          <li><kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> — окно, область или весь экран</li>
+          <li>Редактор: стрелки, рамки, маркер, подписи</li>
+          <li>Хранилище всех снимков — перетаскивайте прямо в чат</li>
+          <li><kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>1</kbd> — выделили участок, текст уже в буфере обмена</li>
+        </ul>
+      </div>
+      <div class="app-shots">
+        <div class="shot-mock" aria-label="Выделение области экрана и панель MacShot">
+          <img src="assets/img/scene-day.jpg" alt="" loading="lazy">
+          <div class="dim"></div>
+          <div class="sel"><span>812 × 460</span></div>
+          <div class="bar">
+            <span class="on">Окно</span><span>Область</span><span>Экран</span><span>Текст</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="app flip">
+      <div class="app-text">
+        <div class="app-head"><span class="tile"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><div><h3>Finder</h3><p>MacFinder</p></div></div>
+        <ul class="ticks">
+          <li>Боковая панель, плитки и список, группировка по дате и типу</li>
+          <li>Панель просмотра справа и быстрый просмотр по Пробелу</li>
+          <li>Анализ места на дисках и очистка мусора</li>
+          <li>По желанию — открывает папки вместо Проводника (через Windhawk)</li>
+        </ul>
+      </div>
+      <div class="app-shots">
+        <figure class="window"><img src="assets/img/finder-grid.png" alt="Окно Finder с плитками фото и документов" width="1120" height="720" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="app">
+      <div class="app-text">
+        <div class="app-head"><span class="tile"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><div><h3>Экран iPhone</h3><p>MacMirror</p></div></div>
+        <ul class="ticks">
+          <li>«Повтор экрана» с iPhone по Wi-Fi — без приложений и проводов</li>
+          <li>Звук телефона на колонках компьютера</li>
+          <li>Снимок в полном разрешении и запись видео со звуком</li>
+          <li>Файлы туда и обратно по QR-коду, как AirDrop</li>
+        </ul>
+      </div>
+      <div class="app-shots pair">
+        <img class="paper" src="assets/img/share.png" alt="Окно «Файлы с iPhone» с QR-кодом" width="400" height="752" loading="lazy">
+        <div class="phone"><iframe src="assets/demo/iphone.html" title="Страница отправки файлов на iPhone" loading="lazy"></iframe></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= центр ======================= -->
+<section id="center" class="section tint">
+  <div class="wrap">
+    <h2>Центр Mac — все настройки в одном окне</h2>
+    <p class="sub">При первом запуске показывает, какая у вас Windows, ставит выбранное, а дальше — как «Параметры»: переключатели, клавиши, обновления.</p>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-shot="center-welcome-11.png" data-cap="Приветствие: центр сам определяет Windows 10 или 11, версию и тему">Приветствие</button>
+      <button role="tab" data-shot="center-setup-10.png" data-cap="Выбор программ и замена Проводника на Finder">Установка</button>
+      <button role="tab" data-shot="center-home-11.png" data-cap="Главная: все программы и их состояние">Главная</button>
+      <button role="tab" data-shot="center-mixer-11-dark.png" data-cap="Страница программы: настройки, клавиши, обновление — в тёмной теме">Программа</button>
+      <button role="tab" data-shot="center-look-11.png" data-cap="Оформление: тема и обои по времени суток">Оформление</button>
+      <button role="tab" data-shot="center-windows-11.png" data-cap="Окна: все окна плитками и раскладка клавишами">Окна</button>
+      <button role="tab" data-shot="center-tweaks-10.png" data-cap="Твики Windows — каждый возвращается тем же переключателем">Твики</button>
+    </div>
+    <figure class="window big">
+      <img id="tabshot" src="assets/img/center-welcome-11.png" alt="Приветствие Центра Mac" width="1100" height="740">
+    </figure>
+    <p class="caption" id="tabcap">Приветствие: центр сам определяет Windows 10 или 11, версию и тему</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap two">
+    <div>
+      <h2>Своя Windows — свой вид</h2>
+      <p class="sub left">Программы не копируют Mac один в один: они выглядят как родные для вашей системы. На Windows 11 — скругления, шрифт Segoe UI Variable и значки Fluent. На Windows 10 — строгие углы и Segoe UI. Тёмная тема и цвет акцента берутся из настроек Windows.</p>
+      <p class="hint">Потяните разделитель на картинке →</p>
+    </div>
+    <div class="compare" id="compare" aria-label="Сравнение оформления Windows 10 и Windows 11">
+      <img src="assets/img/center-home-10.png" alt="Оформление Windows 10" width="1100" height="740">
+      <div class="top"><img src="assets/img/center-home-11.png" alt="Оформление Windows 11" width="1100" height="740"></div>
+      <span class="tag l">Windows 11</span><span class="tag r">Windows 10</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Разделитель">
+      <div class="handle"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= обои ======================= -->
+<section id="scenery" class="section dark-band">
+  <div class="wrap">
+    <h2>Обои, которые живут вместе с солнцем</h2>
+    <p class="sub">«Пейзаж дня» рисуется сам под восход и закат в вашем городе: утро, день, вечер и ночь плавно сменяют друг друга. Тема Windows тоже может переключаться по солнцу.</p>
+    <div class="scene" id="scene">
+      <img src="assets/img/scene-morning.jpg" alt="Утро" class="s0" width="1920" height="1080" loading="lazy">
+      <img src="assets/img/scene-day.jpg" alt="День" class="s1" width="1920" height="1080" loading="lazy">
+      <img src="assets/img/scene-evening.jpg" alt="Вечер" class="s2" width="1920" height="1080" loading="lazy">
+      <img src="assets/img/scene-night.jpg" alt="Ночь" class="s3" width="1920" height="1080" loading="lazy">
+      <div class="clock" id="clock">12:00</div>
+    </div>
+    <label class="slider">
+      <span>Время суток</span>
+      <input type="range" id="time" min="0" max="1439" value="720" step="10">
+    </label>
+  </div>
+</section>
+
+<!-- ======================= окна ======================= -->
+<section class="section">
+  <div class="wrap two">
+    <div>
+      <h2>Окна — как на Mac</h2>
+      <p class="sub left"><kbd>Ctrl</kbd>+<kbd>Win</kbd>+<kbd>↑</kbd> раскладывает все открытые окна живыми плитками на каждом мониторе — щёлкните нужное. А <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+стрелки ставят окно на половину, треть или четверть экрана.</p>
+    </div>
+    <div class="snap" aria-label="Схема раскладки окон">
+      <div class="screen">
+        <div class="w a">Ctrl+Alt+←<br><small>ещё раз — ⅔, потом ⅓</small></div>
+        <div class="w b">Ctrl+Alt+I</div>
+        <div class="w c">Ctrl+Alt+K</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= клавиши ======================= -->
+<section id="keys" class="section tint">
+  <div class="wrap">
+    <h2>Главное — на клавишах</h2>
+    <div class="keys">
+      <div><span><kbd>Win</kbd>+<kbd>Пробел</kbd></span>поиск</div>
+      <div><span><kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></span>снимок экрана</div>
+      <div><span><kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>1</kbd></span>текст с экрана</div>
+      <div><span><kbd>Pause</kbd></span>исправить раскладку</div>
+      <div><span><kbd>Пробел</kbd></span>быстрый просмотр в Проводнике</div>
+      <div><span><kbd>Ctrl</kbd>+<kbd>Win</kbd>+<kbd>M</kbd></span>панель музыки</div>
+      <div><span><kbd>Ctrl</kbd>+<kbd>Win</kbd>+<kbd>↑</kbd></span>все окна плитками</div>
+      <div><span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd><kbd>→</kbd></span>окно на половину экрана</div>
+      <div><span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Win</kbd>+<kbd>→</kbd></span>окно на другой монитор</div>
+      <div><span><kbd>Ctrl</kbd>+<kbd>F</kbd></span>файлы с iPhone (в окне экрана iPhone)</div>
+      <div><span><kbd>Alt</kbd>+<kbd>Shift</kbd></span>сменить раскладку</div>
+      <div><span><kbd>Ctrl</kbd>+<kbd>S</kbd> / <kbd>R</kbd></span>снимок / запись экрана iPhone</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= установка ======================= -->
+<section id="install" class="section">
+  <div class="wrap">
+    <h2>Установка за минуту</h2>
+    <ol class="steps">
+      <li><b>Скачайте</b><span>«Центр Mac.exe» — это всё, что нужно.</span></li>
+      <li><b>Запустите</b><span>Если Windows напишет «Защитила ваш компьютер» — «Подробнее» → «Выполнить в любом случае». Программы бесплатные и не подписаны платным сертификатом.</span></li>
+      <li><b>Отметьте программы</b><span>Центр поставит их сам. Windows один-два раза спросит разрешение администратора: для экрана iPhone и замены Проводника.</span></li>
+    </ol>
+    <div class="req">
+      <div><b>Система</b>Windows 10 версии 1809 и новее или Windows 11, 64 бита</div>
+      <div><b>Место</b>около 20 МБ</div>
+      <div><b>Экран iPhone</b>iPhone и компьютер в одной сети Wi-Fi</div>
+      <div><b>Удаление</b>Центр Mac → «Система» → «Удалить всё», Windows станет как была</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= вопросы ======================= -->
+<section id="faq" class="section tint">
+  <div class="wrap narrow">
+    <h2>Вопросы</h2>
+    <details><summary>Антивирус ругается — это опасно?</summary><p>Программы ловят горячие клавиши (Win+Пробел, Pause) и для исправления раскладки сами печатают текст — так же ведут себя и вредные программы, поэтому некоторые антивирусы тревожатся. Ничего не отправляется в интернет, кроме двух случаев ниже. Исходники всех программ лежат в архиве — их можно прочитать и собрать самому.</p></details>
+    <details><summary>Нужен ли интернет?</summary><p>Нет. В сеть ходят только текст песен (база lrclib.net, только для играющей песни и только если текст включён) и установка Windhawk через winget, если вы выбрали замену Проводника. Экран iPhone и передача файлов работают внутри вашей домашней сети.</p></details>
+    <details><summary>Что с Win+Пробел — как теперь менять раскладку?</summary><p>Win+Пробел открывает поиск, а раскладка переключается по Alt+Shift или Ctrl+Shift. Если удалить поиск, Win+Пробел снова будет менять раскладку.</p></details>
+    <details><summary>Можно ли вернуть всё как было?</summary><p>Да. Каждая настройка и каждый твик выключаются тем же переключателем. «Система» → «Удалить всё» убирает программы, возвращает Проводник и прежние обои.</p></details>
+    <details><summary>Будет ли работать на Windows 11?</summary><p>Да — программы сами переходят на оформление Windows 11. Замену Проводника на Finder в Windows 11 пока лучше не включать: она ещё не проверена, поэтому по умолчанию выключена.</p></details>
+    <details><summary>Как обновить?</summary><p>Скачайте новый «Центр Mac.exe» в папку «Загрузки» и откройте «Система» → «Проверить» в уже установленном центре — он найдёт новую версию и обновит программы, сохранив настройки. Перенести настройки на другой компьютер можно там же: «Сохранить в файл…».</p></details>
+    <details><summary>Это продукт Apple?</summary><p>Нет. Это независимые бесплатные программы для Windows, вдохновлённые удобством macOS. Они не связаны с Apple Inc. и не используют её значки, шрифты или картинки.</p></details>
+  </div>
+</section>
+
+<section class="section final">
+  <div class="wrap narrow center">
+    <img src="assets/img/icon.png" alt="" width="88" height="88">
+    <h2>Попробуйте сегодня</h2>
+    <p class="sub">Бесплатно. Один файл. Всё обратимо.</p>
+    <div class="cta center">
+      <a class="btn primary big" href="downloads/mac-center.exe" download="Центр Mac.exe">Скачать Центр Mac</a>
+      <a class="btn ghost big" href="downloads/MacSuite.zip">Архив с исходниками</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>Центр Mac · <span id="footver">бесплатно</span></span>
+    <span>MacMirror содержит код UxPlay (GPL-3.0), звук — Fraunhofer FDK AAC; исходники — в архиве. Не связано с Apple Inc.</span>
+  </div>
+</footer>
+
+</body>
+</html>
